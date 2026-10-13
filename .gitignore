@@ -1,0 +1,10 @@
+build/
+cmake-build-*/
+bin/
+lib/
+compile_commands.json
+*dSYM/
+*.core
+.idea/
+.vscode/
+.DS_Store
