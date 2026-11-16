@@ -5,16 +5,12 @@
 
 int main()
 {
-    std::vector<std::string> names = {"A", "B", "C", "G1", "Z"};
-    std::vector<float> delays = {0.0f, 0.0f, 0.0f, 10.0f, 15.0f};
+    const std::vector<std::string> names = {"A", "B", "C", "G1", "Z"};
+    const std::vector<float> delays = {0.0f, 0.0f, 0.0f, 10.0f, 15.0f};
 
-    std::vector<std::vector<int>> adj(5);
-
-    adj[0] = {3};
-    adj[1] = {3};
-    adj[2] = {4};
-    adj[3] = {4};
-    adj[4] = {};
+    const std::vector<std::vector<int>> adj = {
+        {3}, {3}, {4}, {4}, {}
+    };
 
     std::vector<float> arrival_times (5, 0.0f);
     float max_time = 0.0f;
@@ -24,7 +20,7 @@ int main()
 
         max_time = std::max(max_time, arrival_times[u]);
 
-        for (int v: adj[u]){
+        for (const int v: adj[u]){
             arrival_times[v] = std::max(arrival_times[v], arrival_times[u]);
         }
     }
